@@ -1,0 +1,13 @@
+machine:
+  java:
+    version: openjdk8
+
+dependencies:
+  override:
+    - pip install awscli
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./gradlew build
