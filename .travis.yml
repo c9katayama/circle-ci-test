@@ -4,6 +4,6 @@ jdk:
 branches:
  only: 
     - master
-install: ./guile.sh
+script: ./guile.sh
 after_success:
   - echo "hello"
