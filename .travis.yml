@@ -1,6 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-script: ./guile.sh
+script: ./build.sh
 after_success:
   - echo "hello"
