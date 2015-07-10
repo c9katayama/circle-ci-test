@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
-DIR="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
+DIR=`pwd`
 case $TRAVIS_BRANCH in
     master)
         echo "buid and test start."
@@ -15,9 +15,9 @@ case $TRAVIS_BRANCH in
 		export AWS_ACCESS_KEY_ID=$STAGING_AWS_ACCESSKEY
 		export AWS_SECRET_ACCESS_KEY=$STAGING_AWS_SECRETKEY
         mkdir target
-        cp build/libs/*.jar target/ci.jar
-        cp deploy/* target/.
-        cd target
+        cp $DIR/build/libs/*.jar $DIR/target/ci.jar
+        cp $DIR/deploy/* $DIR/target/.
+        cd $DIR/target
         $DIR/eb_deploy.sh -a CI -e ci-env-green -k $STAGING_KEYNAME	
         exit 0
         ;;
