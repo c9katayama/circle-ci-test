@@ -20,7 +20,7 @@ case $TRAVIS_BRANCH in
         cp $DIR/build/libs/*.jar $DIR/target/ci.jar
         cp $DIR/deploy/* $DIR/target/.
         cd $DIR/target
-        $DIR/eb_deploy.sh -a CI -e ci-env-green -k $STAGING_KEYNAME	
+        $DIR/eb_deploy.sh -a CI -e ci-env-blue -k $STAGING_KEYNAME	
         exit 0
         ;;
     prod-deploy)

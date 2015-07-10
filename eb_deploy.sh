@@ -56,8 +56,8 @@ global:
   profile: $AWS_PROFILE
   sc: null
 EOF
-DATE=`env TZ=JST-9 date '+%Y%m%d%H%M%S'`
-COMMIT=`git log -n 1 --format=%H`
+DATE=`env TZ=JST-9 date '+%Y%m%d-%H%M%S'`
+COMMIT=`git log -n 1 --format=%H | cut -c 1-10`
 LABEL="$DATE-$COMMIT"
 
 eb init
