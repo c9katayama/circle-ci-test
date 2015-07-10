@@ -14,6 +14,8 @@ case $TRAVIS_BRANCH in
         echo "deploy to staging"
 		export AWS_ACCESS_KEY_ID=$STAGING_AWS_ACCESSKEY
 		export AWS_SECRET_ACCESS_KEY=$STAGING_AWS_SECRETKEY
+		$DIR/gradlew clean
+        $DIR/gradlew build
         mkdir target
         cp $DIR/build/libs/*.jar $DIR/target/ci.jar
         cp $DIR/deploy/* $DIR/target/.
@@ -25,6 +27,8 @@ case $TRAVIS_BRANCH in
         echo "deploy to PROD."
 		export AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESSKEY
 		export AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRETKEY
+		$DIR/gradlew clean
+        $DIR/gradlew build
         mkdir target
         cp build/libs/*.jar target/ci.jar
         cp deploy/* target/.
