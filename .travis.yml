@@ -6,6 +6,9 @@ install:
  - sudo pip install awsebcli
 before_script:
  - chmod +x build.sh
+branches:
+  only:
+    - prod-deploy
 script: ./build.sh
 after_success:
   - echo "hello"
