@@ -11,8 +11,8 @@ case $TRAVIS_BRANCH in
         ;;
     staging-deploy)
         echo "deploy to staging"
-		AWS_ACCESS_KEY_ID=$STAGING_AWS_ACCESSKEY
-		AWS_SECRET_ACCESS_KEY=$STAGING_AWS_SECRETKEY
+		export AWS_ACCESS_KEY_ID=$STAGING_AWS_ACCESSKEY
+		export AWS_SECRET_ACCESS_KEY=$STAGING_AWS_SECRETKEY
         mkdir target
         cd target
         $DIR/eb_deploy.sh -a CI -e ci-env-green -k $STAGING_KEYNAME	
@@ -20,8 +20,8 @@ case $TRAVIS_BRANCH in
         ;;
     prod-deploy)
         echo "deploy to PROD."
-		AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESSKEY
-		AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRETKEY
+		export AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESSKEY
+		export AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRETKEY
         mkdir target
         cd target
         $DIR/eb_deploy.sh -a CI -e ci-env-green -k $PROD_KEYNAME	
