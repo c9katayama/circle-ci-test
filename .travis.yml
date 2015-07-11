@@ -14,3 +14,7 @@ branches:
 script: ./build.sh
 after_success:
   - echo "hello"
+  
+env:
+  global:
+    - TIMEOUT=1000
